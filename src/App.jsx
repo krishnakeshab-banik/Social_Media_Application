@@ -8,12 +8,14 @@ import Connections from './pages/Connections.jsx'
 import Discover from './pages/Discover.jsx'
 import Profile from './pages/Profile.jsx'
 import CreatePost from './pages/CreatePost.jsx'
+import {useUser} from '@clerk/clerk-react'
 
 const App = () => {
+  const {user} = useUser()
   return (
     <>
   <Routes>
-    <Route path='/' element={<Login />} >
+    <Route path='/' element={ !user ? <Login /> : <Layout/>}> // when te user is not logged in, show the login page
      <Route index element={<Feed/>}/>
      <Route path='messages/' element={<Messages/>}/>
      <Route path='messages/:userId=' element={<Chatbox/>}/>

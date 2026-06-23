@@ -1,6 +1,7 @@
-import React from "react";
-import { assets } from "../assets/assets.js";
-import { Star } from "lucide-react";
+import React from "react"
+import { assets } from "../assets/assets.js"
+import { Star } from "lucide-react"
+import {SignIn} from "@clerk/clerk-react"
 
 const Login = () => {
   return (
@@ -30,6 +31,9 @@ const Login = () => {
           <p className='text-xl md:text-3xl text-indigo-900 max-w-72 md:max-w-md'>connect with global community on pingup.</p>
         </div>
         <span className='md:h-10'></span>
+      </div>
+      <div className='flex-1 flex items-center justify-center p-6 sm:p-10'>
+        <SignIn />
       </div>
     </div>
   );
